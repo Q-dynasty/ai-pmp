@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PMP 思维导图总入口</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <a class="back-link" href="../index.html">返回学习包首页</a>
+
+    <section class="hero-panel">
+      <p class="eyebrow">Mindmap Study Pack</p>
+      <h1>PMP 思维导图总入口</h1>
+      <p class="lead">建议按“总图建立框架、考试图梳理流程、冲刺图做最后复盘”的顺序浏览，这样更容易把理解、应试和记忆三层串成一条线。</p>
+      <p class="lead">下面的 3 个页面会直接渲染 Mermaid 脑图，适合本地打开，也适合后续部署到 GitHub Pages。</p>
+      <ol class="reading-order">
+        <li>先看 <a href="pmp-overview.html">PMP 全局总图</a>，快速搭好整体骨架。</li>
+        <li>再看 <a href="pmbok6-exam-map.html">第六版考试框架图</a>，集中回忆五大过程组里的过程分布。</li>
+        <li>最后看 <a href="sprint-review-map.html">冲刺记忆图</a>，把高频、易混和口诀一起压缩复盘。</li>
+      </ol>
+    </section>
+
+    <section class="card-grid" aria-label="思维导图入口卡片">
+      <article class="branch-card">
+        <span class="branch-chip">Step 1</span>
+        <h2>PMP 全局总图</h2>
+        <p>先把 PMBOK 7、PMBOK 6 和强化层的关系看清，知道整个学习包为什么这样安排。</p>
+        <p><a href="pmp-overview.html">进入浏览版页面</a></p>
+      </article>
+
+      <article class="branch-card">
+        <span class="branch-chip">Step 2</span>
+        <h2>第六版考试框架图</h2>
+        <p>按启动、规划、执行、监控、收尾五列展开，用于过程组和过程名称的快速回忆。</p>
+        <p><a href="pmbok6-exam-map.html">进入浏览版页面</a></p>
+      </article>
+
+      <article class="branch-card">
+        <span class="branch-chip">Step 3</span>
+        <h2>冲刺记忆图</h2>
+        <p>把考前最需要压缩记忆的高频、易混和口诀放在一起，适合最后几天来回刷。</p>
+        <p><a href="sprint-review-map.html">进入浏览版页面</a></p>
+      </article>
+    </section>
+
+    <section class="note-panel">
+      <p>用于维护结构的 Markdown Mermaid 源文件仍然保留在当前目录下，包括 <code>pmp-overview.md</code>、<code>pmbok6-exam-map.md</code> 和 <code>sprint-review-map.md</code>。浏览页会在构建时挂接本地 Mermaid 资源，适合发布到 GitHub Pages。</p>
+    </section>
+  </main>
+</body>
+</html>
