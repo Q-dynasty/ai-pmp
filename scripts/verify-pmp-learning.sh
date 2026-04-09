@@ -12,6 +12,16 @@ cd "$project_root"
 
 missing=0
 
+if command -v rg >/dev/null 2>&1; then
+  search_fixed() {
+    rg -q --fixed-strings "$1" "$2"
+  }
+else
+  search_fixed() {
+    grep -Fq -- "$1" "$2"
+  }
+fi
+
 require_dir() {
   if [ ! -d "$1" ]; then
     printf 'MISSING DIR: %s\n' "$1"
@@ -29,7 +39,7 @@ require_file() {
 require_text() {
   file="$1"
   pattern="$2"
-  if ! rg -q --fixed-strings "$pattern" "$file"; then
+  if ! search_fixed "$pattern" "$file"; then
     printf 'MISSING TEXT: %s -> %s\n' "$file" "$pattern"
     missing=1
   fi

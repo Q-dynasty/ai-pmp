@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test scripts/build-mindmaps.test.mjs",
+    "test": "node --test scripts/build-mindmaps.test.mjs scripts/verify-pmp-learning.test.mjs",
     "build": "node scripts/build-mindmaps.mjs",
     "verify": "npm test && npm run build && sh scripts/verify-pmp-learning.sh"
   },
