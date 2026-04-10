@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PMP 总脑图</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <div class="top-links">
+      <a class="back-link" href="index.html">返回思维导图总入口</a>
+      <a class="back-link secondary-link" href="../index.html">返回学习包首页</a>
+    </div>
+
+    <section class="hero-panel">
+      <p class="eyebrow">Master Brainmap</p>
+      <h1>PMP 总脑图</h1>
+      <p class="lead">先搭全局骨架，再进入核心知识、高频判断和记忆冲刺。</p>
+      <p class="lead">直接按脑图看知识点、判断抓手、记忆口诀和视频精华，不需要来回跳文档。</p>
+    </section>
+
+    <section class="diagram-shell" aria-label="PMP 总脑图 Mermaid 脑图">
+      <div class="diagram-meta">
+        <span class="branch-chip">Mermaid Render</span>
+        <span class="status-pill" data-render-status>正在渲染脑图...</span>
+      </div>
+      <div class="diagram-frame">
+        <pre class="mermaid">mindmap
+  root((PMP 速通总图))
+    学习顺序
+      先总后分：先搭骨架再补细节
+      先理解再应试：第七版讲为什么
+      最后冲刺：高频判断和口诀反复刷
+    核心知识
+      PMBOK 7：原则和绩效域决定管理思路
+      PMBOK 6：过程组和知识领域决定考试框架
+      敏捷：迭代交付响应变化重协作
+    高频判断
+      变更控制：所有变更先评估再批准
+      风险和问题：未发生看风险已发生看问题
+      管质量和控质量：改过程与查结果要分清
+      沟通和干系人：传信息与管参与不是一回事
+    记忆抓手
+      启规执监收：五大过程组顺序
+      整范进成质资沟风采干：十大知识领域
+      风险口诀：先规后识再定再量跟应对再监督
+      干系人口诀：先识别再规划后管理再监督
+    视频精华
+      先搭框架再背细节：零基础最省力
+      第七版先理解价值团队系统思维
+      冲刺题先分场景再选流程动作</pre>
+      </div>
+    </section>
+
+    <section class="note-panel">
+      <p>这张脑图由当前目录下的 Mermaid 源文件实时生成，适合部署到 GitHub Pages 后直接在线查看。</p>
+    </section>
+  </main>
+
+  <script src="../assets/vendor/mermaid.min.js"></script>
+  <script>
+    const statusNode = document.querySelector("[data-render-status]");
+    const diagramNode = document.querySelector(".mermaid");
+
+    const renderMindmap = async () => {
+      try {
+      mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        theme: "base",
+        themeVariables: {
+          primaryColor: "#d8ebe5",
+          primaryTextColor: "#1f2328",
+          primaryBorderColor: "#1f6f5f",
+          lineColor: "#174d42",
+          tertiaryColor: "#fff8ec",
+          fontFamily: "PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif"
+        }
+      });
+
+      await mermaid.run({ nodes: [diagramNode] });
+      document.documentElement.classList.add("mermaid-ready");
+      statusNode.textContent = "脑图渲染完成";
+      } catch (error) {
+      document.documentElement.classList.add("mermaid-failed");
+      statusNode.textContent = "渲染失败，已保留源码";
+      console.error(error);
+      }
+    };
+
+    renderMindmap();
+  </script>
+</body>
+</html>

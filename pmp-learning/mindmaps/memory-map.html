@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>口诀记忆图</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <div class="top-links">
+      <a class="back-link" href="index.html">返回思维导图总入口</a>
+      <a class="back-link secondary-link" href="../index.html">返回学习包首页</a>
+    </div>
+
+    <section class="hero-panel">
+      <p class="eyebrow">Memory Map</p>
+      <h1>口诀记忆图</h1>
+      <p class="lead">把最需要强记的顺序、公式和判断口令压缩到一张图里，适合考前高频刷。</p>
+      <p class="lead">直接按脑图看知识点、判断抓手、记忆口诀和视频精华，不需要来回跳文档。</p>
+    </section>
+
+    <section class="diagram-shell" aria-label="口诀记忆图 Mermaid 脑图">
+      <div class="diagram-meta">
+        <span class="branch-chip">Mermaid Render</span>
+        <span class="status-pill" data-render-status>正在渲染脑图...</span>
+      </div>
+      <div class="diagram-frame">
+        <pre class="mermaid">mindmap
+  root((口诀记忆图))
+    五大过程组
+      启规执监收：先立项再定法边做边看最后收
+      考试抓手：先问题目处在哪个阶段
+    十大知识领域
+      整范进成质资沟风采干
+      记忆方式：先背简称再反推全称
+    风险流程
+      先规后识
+      再定再量
+      跟着应对
+      最后监督
+    干系人流程
+      先识别
+      再规划
+      后管理
+      再监督
+    挣值公式
+      PV：计划做到哪
+      EV：实际挣到哪
+      AC：实际花多少
+      CPI：EV除AC看值不值
+      SPI：EV除PV看赶没赶上
+    易混口诀
+      管过程控结果
+      风险未发生问题已发生
+      沟通传信息干系人管关系
+    视频精华
+      冲刺阶段只背高频主干别贪全
+      每背一句都要能反推原概念
+      先看场景关键词再套流程动作</pre>
+      </div>
+    </section>
+
+    <section class="note-panel">
+      <p>这张脑图由当前目录下的 Mermaid 源文件实时生成，适合部署到 GitHub Pages 后直接在线查看。</p>
+    </section>
+  </main>
+
+  <script src="../assets/vendor/mermaid.min.js"></script>
+  <script>
+    const statusNode = document.querySelector("[data-render-status]");
+    const diagramNode = document.querySelector(".mermaid");
+
+    const renderMindmap = async () => {
+      try {
+      mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        theme: "base",
+        themeVariables: {
+          primaryColor: "#d8ebe5",
+          primaryTextColor: "#1f2328",
+          primaryBorderColor: "#1f6f5f",
+          lineColor: "#174d42",
+          tertiaryColor: "#fff8ec",
+          fontFamily: "PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif"
+        }
+      });
+
+      await mermaid.run({ nodes: [diagramNode] });
+      document.documentElement.classList.add("mermaid-ready");
+      statusNode.textContent = "脑图渲染完成";
+      } catch (error) {
+      document.documentElement.classList.add("mermaid-failed");
+      statusNode.textContent = "渲染失败，已保留源码";
+      console.error(error);
+      }
+    };
+
+    renderMindmap();
+  </script>
+</body>
+</html>
